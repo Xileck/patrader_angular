@@ -1,0 +1,41 @@
+import { TipoDesecho } from './tipo-desecho';
+import { Persona } from './persona';
+import { TipoGestion } from './tipo-gestion';
+import { Campania } from './campania';
+import { Desecho } from './desecho';
+import { Almacen } from './almacen';
+import { Pozo } from './pozo';
+
+export class Bulto {
+    id: number;
+    identificacion: string;
+    consecutivo: number;
+    anio: number;
+    tipoDesecho: TipoDesecho;
+    fechaEnvase: Date;
+    fechaMedicion: Date;
+    dosisContacto: number;
+    dosis1m: number;
+    clasificacion: string;
+    actividadInicial: number;
+    actividadActual: number;
+    actividadEspecifica: number;
+    concentracion: number;
+    masa: number;
+    observaciones: string;
+    preparoBulto: Persona;
+    fechaPreparo: Date;
+    revisoBulto: Persona;
+    fechaReviso: Date;
+    valorD: number;
+    valorA_D: number;
+    categoria: number;
+    vidaMedia: string;
+    tipoGestion: TipoGestion;
+    cumpleNom035: boolean;
+    campania: Campania;
+    tratamiento: string;
+    almacen: Almacen;
+    desechos: Desecho[];
+    pozos: Pozo[];
+}

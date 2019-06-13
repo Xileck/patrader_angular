@@ -1,0 +1,46 @@
+<h2 mat-dialog-title>AGREGAR PERSONA</h2>
+<mat-dialog-content class="mat-typography">
+
+  <form class="persona-form" [formGroup]="personaForm" style="font-size: 18px;">
+
+    <mat-form-field appearance="fill">
+      <mat-label>Nombre</mat-label>
+      <input matInput placeholder="Nombre" formControlName="nombreControl"
+      [(ngModel)]="objPersona.nombre" required
+      (input)="objPersona.nombre = capitalLetter($event.target.value)">
+      <mat-error *ngIf="nombreControl.hasError('required')">
+        Campo requerido
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Apellido paterno</mat-label>
+      <input matInput placeholder="A.paterno" formControlName="apPatControl"
+      [(ngModel)]="objPersona.apellidoPaterno" required
+      (input)="objPersona.apellidoPaterno = capitalLetter($event.target.value)">
+      <mat-error *ngIf="apPatControl.hasError('required')">
+        Campo requerido
+      </mat-error>
+    </mat-form-field>
+
+
+    <mat-form-field appearance="fill">
+      <mat-label>Apellido materno</mat-label>
+      <input matInput placeholder="A.materno" formControlName="apMatControl"
+      [(ngModel)]="objPersona.apellidoMaterno" required
+      (input)="objPersona.apellidoMaterno = capitalLetter($event.target.value)">
+      <mat-error *ngIf="apMatControl.hasError('required')">
+        Campo requerido
+      </mat-error>
+    </mat-form-field>
+  </form>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+
+  <button mat-raised-button color="primary"  (click)="insertarPersona()">Guardar</button>
+  &nbsp;
+  <button mat-stroked-button color="primary" [mat-dialog-close]="true" cdkFocusInitial>Cancelar</button>
+
+
+</mat-dialog-actions>

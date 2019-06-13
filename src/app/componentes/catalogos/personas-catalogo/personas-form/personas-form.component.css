@@ -1,0 +1,9 @@
+.persona-form *{
+  width: 100%;
+  font-size: 15px
+}
+
+.persona-form mat-label{
+  font-size: 20px;
+}
+

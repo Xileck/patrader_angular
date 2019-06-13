@@ -1,0 +1,8 @@
+.mat-dialog-buttons,
+.mat-dialog-buttons button {
+    width: 100%;
+}
+
+.mat-dialog-buttons button {
+    font-size:14px;
+}

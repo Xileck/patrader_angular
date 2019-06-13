@@ -1,0 +1,111 @@
+<h1 mat-dialog-title>Empresa</h1>
+<form *ngIf="empresa !=null;" [formGroup]="empresaForm" autocomplete="off" novalidate
+  (ngSubmit)="onSubmitEmpresa(empresaForm)">
+
+  <div mat-dialog-content>
+
+    <div class="example-container">
+
+      <!--Nombre Empresa-->
+      <mat-form-field appearance="outline">
+        <mat-label>Nombre de la Empresa</mat-label>
+        <mat-icon matSuffix>domain</mat-icon>
+        <input matInput placeholder="Nombre Empresa" formControlName="nombre" id="nombre" [readonly]="readOnly">
+      </mat-form-field>
+
+      <div flex fxLayout="row" fxLayoutWrap fxLayout.xs="column" fxLayoutGap="10px" fxLayoutAlign="center">
+        <!--Telefono-->
+        <div fxFlex="50">
+          <mat-form-field appearance="outline">
+            <mat-label>Telefono</mat-label>
+            <input matInput placeholder="Telefono" id="telefono" formControlName="telefono" [readonly]="readOnly">
+            <mat-icon matSuffix>phone</mat-icon>
+          </mat-form-field>
+        </div>
+
+        <!--Representante-->
+        <div fxFlex="50" (click)="openBottomSheet()">
+
+          <mat-form-field appearance="outline">
+            <input matInput [value]="empresa.representante | nombreCompleto" placeholder="Representante" readonly="true"
+              style="cursor: pointer;">
+            <mat-label>Representante</mat-label>
+            <mat-hint *ngIf="!readOnly">Clic para buscar y seleccionar representante.</mat-hint>
+            <mat-icon matSuffix>person</mat-icon>
+          </mat-form-field>
+        </div>
+
+      </div>
+
+
+      <!--Codigo Postal-->
+      <div flex fxLayout="row" fxLayoutWrap fxLayout.xs="column" fxLayoutGap="10px" fxLayoutAlign="left">
+        <div fxFlex="50">
+          <mat-form-field appearance="outline">
+            <mat-label>Codigo Postal</mat-label>
+            <input matInput placeholder="Codigo Postal" formControlName="codigoPostal" id="codigoPostal"
+              (input)="onCPChange()" [readonly]="readOnly" maxlength="5">
+            <mat-icon matSuffix>place</mat-icon>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div flex fxLayout="row" fxLayoutWrap fxLayout.xs="column" fxLayoutGap="10px" fxLayoutAlign="left">
+
+        <!--Estado-->
+        <div fxFlex="50">
+          <mat-form-field appearance="outline">
+            <mat-label>Estado</mat-label>
+            <input matInput placeholder="Estado" formControlName="estado" id="estado" [readonly]="readOnly">
+          </mat-form-field>
+        </div>
+
+        <!--Ciudad-->
+        <div fxFlex="50">
+          <mat-form-field appearance="outline">
+            <mat-label>Ciudad</mat-label>
+            <input matInput placeholder="Ciudad" formControlName="ciudad" id="ciudad" [readonly]="readOnly">
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+
+    <div flex fxLayout="row" fxLayoutWrap fxLayout.xs="column" fxLayoutGap="10px" fxLayoutAlign="left">
+
+      <!--Calle-->
+      <div fxFlex="50">
+        <mat-form-field appearance="outline">
+          <mat-label>Calle</mat-label>
+          <input matInput placeholder="Calle" formControlName="calle" id="calle" [readonly]="readOnly">
+        </mat-form-field>
+      </div>
+
+      <!--Numero Exterior-->
+      <div fxFlex="50">
+        <mat-form-field appearance="outline">
+          <mat-label>Num. Exterior</mat-label>
+          <input matInput placeholder="Nº exterior" formControlName="numCalle" id="numCalle" [readonly]="readOnly">
+        </mat-form-field>
+      </div>
+    </div>
+
+
+  </div>
+
+  <!-- Botones -->
+  <div mat-dialog-actions *ngIf="!readOnly">
+
+    <button mat-raised-button color="primary" type="submit"
+      [disabled]="!empresaForm.valid || !empresaForm.dirty">Guardar</button>
+
+    <button mat-stroked-button color="warn" cdkFocusInitial (click)="onNoClick()">Cancelar</button>
+
+  </div>
+
+  <div mat-dialog-actions *ngIf="readOnly">
+
+    <button mat-stroked-button color="primary" cdkFocusInitial (click)="onNoClick()">Salir</button>
+
+  </div>
+
+</form>

@@ -1,0 +1,24 @@
+.formatoCard {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    border-color: black;
+}
+
+.imagenPerfil {
+    background-image: url(/assets/logoInin.png);
+    background-size: cover;
+}
+
+.btonAgregar {
+    background-image: url(/assets/agregar.png);
+    background-repeat: no-repeat;
+    margin-top: 20px;
+}
+
+.mat-column-select {
+  overflow: initial;
+}
+
+
